@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS Course</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+              "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+            }
+          }
+    </script>
+    <style>
+        body {
+            background-color: rgb(179, 151, 151);
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="app" style="text-align: center;">
+        <label class="role">Role</label> <br>
+        <select v-model="role">
+          <option value="bos">Bos</option>
+          <option value="karyawan">Karyawan</option>
+        </select>
+    
+        <template v-if="role === 'Bos'">
+          <p>Kamu pemilik usaha</p>
+        </template>
+    
+        <template v-else-if="role === 'karyawan'">
+          <p>kamu seorang pekerja</p>
+        </template>
+      </div>
+    
+      <script src="https://unpkg.com/vue@next"></script>
+      <script>
+        let vm = Vue.createApp({
+          data() {
+            return {
+              role: '' // mengatur default nilai dari form
+            }
+          }
+        }).mount('#app');
+      </script>
+</body>
+</html>
